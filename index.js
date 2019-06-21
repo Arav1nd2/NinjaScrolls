@@ -2,11 +2,17 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cluster = require('cluster');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
 // Connect to Database here
  const connectDb = () => {
-     //...
+    
+    const URI = `mongodb://${process.env.DBUSER}:${process.env.DBPASSWORD}@ds341557.mlab.com:41557/ninjascrolls`
+    mongoose.connect(URI).then(() => {
+        console.log('Connected to DB');
+    })
+
  }
 
  // Initialize routes here 
