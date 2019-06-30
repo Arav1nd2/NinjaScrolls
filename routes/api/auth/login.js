@@ -16,6 +16,7 @@ router.post('/login', async (request, res) => {
     // }
     resp = resources['login_success'];
     resp.data = resp_obj;
+    res.cookie('book-store', resp_obj.token);
     response(res, 200, resp);
     
 })
