@@ -30,7 +30,6 @@ class AuthDao {
         if(!result.error)
             result['error'] = false
         let token = jwt.sign(result.id, process.env.PRIVATEKEY);
-        console.log(token, "This is a token");
         let newResult = {...result._doc, token: token, passwordHash: null};
         delete newResult.passwordHash;
         return newResult;
@@ -53,7 +52,6 @@ class AuthDao {
             }
         }
         await newauth.save().then(res => {
-            console.log('Registered user successfully!')
             result = res;
         })
         result.error = false;

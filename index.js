@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const cluster = require('cluster');
 const mongoose = require('mongoose');
 const authApi = require('./routes/api/auth/auth');
+const bookApi = require('./routes/api/protected/books/books');
 require('dotenv').config();
 
 // Connect to Database here
@@ -22,7 +23,8 @@ require('dotenv').config();
     app.use(bodyParser.json());
     app.use(cookieParser());
     app.use(bodyParser.urlencoded({ extended: true }));
-    app.use('/api/auth',authApi )
+    app.use('/api/auth',authApi );
+    app.use('/api/books', bookApi);
     app.get('/', (req,res) => {
         res.status(400).json({
             code: 400,
