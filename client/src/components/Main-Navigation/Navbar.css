@@ -1,0 +1,18 @@
+ul.navbar-nav a.active {
+    color: orange !important;
+}
+
+ul.navbar-nav a {
+    text-decoration: none !important;
+    padding: 0 1rem;
+    margin: 0 1rem;
+}
+
+.navbar {
+    border-bottom: 1px solid orange;
+}
+.navbar-toggler {
+    border:none !important;
+    outline: none !important;
+
+}
